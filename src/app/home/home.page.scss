@@ -24,22 +24,10 @@ header {
 
 .pokemon-list {
   list-style: none;
-  // display: flex;
-  // flex-wrap: wrap;
-  // row-gap: 5rem;
-  // column-gap: 0.5rem;
   padding: 0 2rem;
-  // justify-content: space-between;
   margin: 3rem auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   row-gap: 4rem;
   column-gap: 2rem;
-}
-
-.pokemon-list li {
-  padding: 1rem 3rem;
-  background-color: var(--white);
-  display: flex;
-  justify-content: center;
 }

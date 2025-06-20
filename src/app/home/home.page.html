@@ -15,8 +15,9 @@
       <h2>Lista de Pokemons</h2>
       <ul>
         <li *ngFor="let pokemon of pokemons">
-          {{ pokemon.name }}
-          <img [src]="pokemon.image" [alt]="pokemon.name" style="width: 100px; height: 100px;">
+          <!-- {{ pokemon.name }}
+          <img [src]="pokemon.image" [alt]="pokemon.name" style="width: 100px; height: 100px;"> -->
+          <app-pokemon-card [id]="pokemon.id" [name]="pokemon.name" [image]="pokemon.image"></app-pokemon-card>
         </li>
       </ul>
     </div>

@@ -8,5 +8,8 @@
 
   <main id="content">
     <h2>Detalhes do Pokemon</h2>
+    <section class="details" *ngIf="pokemonDetails">
+      <img [src]="pokemonDetails.image" [alt]="pokemonDetails.name" style="width: 10rem; height: 10rem;">
+    </section>
   </main>
 </ion-content>

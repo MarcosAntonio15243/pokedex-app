@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { DataService } from '../services/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -12,9 +14,30 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 })
 export class DetailsPage implements OnInit {
 
-  constructor() { }
+  pokemonDetails: any = null;
+  pokemonId: string | null = null;
+
+  constructor(private route: ActivatedRoute, private dataService: DataService) { }
+
 
   ngOnInit() {
+    this.pokemonId = this.route.snapshot.paramMap.get('id');
+    if (this.pokemonId) {
+      this.getPokemonDetails(this.pokemonId);
+    } else {
+      console.error('ID ou nome do Pokémon não fornecido na URL');
+    }
+  }
+
+  getPokemonDetails(pokemonId: string) {
+    this.dataService.getPokemonDetails(pokemonId).subscribe({
+      next: (data: any) => {
+        this.pokemonDetails = data;
+      },
+      error: (error) => {
+        console.error("Erro ao buscar detalhes do pokemon: ", error);
+      }
+    });
   }
 
 }

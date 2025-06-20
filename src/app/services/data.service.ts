@@ -11,7 +11,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getPokemons(limit: number = 50, offset: number = 0): Observable<any[]> {
+  getPokemons(limit: number = 50, offset: number = 0): Observable<any> {
     // Request geral para buscar a lista de pokemons da página
     return this.http.get<any[]>(`${this.apiUrl}/pokemon?limit=${limit}&offset=${offset}`).pipe(
       switchMap((response: any) => {
@@ -23,15 +23,21 @@ export class DataService {
         return forkJoin(requests).pipe(
           map((pokemonDetails: any) => {
             // Retorna os dados do pokemon
-            return pokemonDetails.map((detail: any) => ({
+            const pokemons = pokemonDetails.map((detail: any) => ({
               id: detail.id,
               name: detail.name,
               image: detail.sprites.front_default
             }));
+            return {
+              total: response.count,
+              pokemons: pokemons
+            };
           })
-        )
+        );
       })
     );
   }
+
+  
   
 }

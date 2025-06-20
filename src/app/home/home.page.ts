@@ -12,6 +12,7 @@ import { PokemonCardComponent } from '../components/pokemon-card/pokemon-card.co
 })
 export class HomePage implements OnInit {
 
+  totalPokemons: number = 0;
   pokemons: any[] = [];
 
   constructor(private dataService: DataService) {}
@@ -23,7 +24,8 @@ export class HomePage implements OnInit {
   getPokemons() {
     this.dataService.getPokemons().subscribe({
       next: (data: any) => {
-        this.pokemons = data;
+        this.totalPokemons = data.total,
+        this.pokemons = data.pokemons
       },
       error: (error) => {
         console.error("Erro ao buscar os pokemons: ", error);

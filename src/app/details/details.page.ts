@@ -33,6 +33,7 @@ export class DetailsPage implements OnInit {
     this.dataService.getPokemonDetails(pokemonId).subscribe({
       next: (data: any) => {
         this.pokemonDetails = data;
+        console.log(this.pokemonDetails);
       },
       error: (error) => {
         console.error("Erro ao buscar detalhes do pokemon: ", error);

@@ -9,7 +9,23 @@
   <main id="content">
     <h2>Detalhes do Pokemon</h2>
     <section class="details" *ngIf="pokemonDetails">
-      <img [src]="pokemonDetails.image" [alt]="pokemonDetails.name" style="width: 10rem; height: 10rem;">
+      <img [src]="pokemonDetails.sprites?.other?.['official-artwork']?.front_default || pokemonDetails.sprites?.front_default" [alt]="pokemonDetails.name" style="width: 10rem; height: 10rem;">
+      <p class="pokemon-id">#{{ pokemonDetails.id }}</p>
+      <p class="pokemon-name">{{ pokemonDetails.name }} ({{ pokemonDetails.gender }})</p>
+      <p><span>Weight:</span> {{ pokemonDetails.weight }} | <span>Height:</span> {{ pokemonDetails.height }}</p>
+      <p><span>Base Exp.:</span> {{ pokemonDetails.base_experience }}</p>
+      <ul *ngIf="pokemonDetails.abilities.length > 0">
+        <p class="info">Abilities</p>
+        <li *ngFor="let ability of pokemonDetails.abilities">{{ ability }}</li>
+      </ul>
+      <ul *ngIf="pokemonDetails.types.length > 0">
+        <p class="info">Types</p>
+        <li *ngFor="let type of pokemonDetails.types">{{ type.type.name }}</li>
+      </ul>
+      <ul *ngIf="pokemonDetails.stats.length > 0">
+        <p class="info">Stats</p>
+        <li *ngFor="let statistic of pokemonDetails.stats">{{ statistic.stat.name }}: {{ statistic.base_stat }}</li>
+      </ul>
     </section>
   </main>
 </ion-content>

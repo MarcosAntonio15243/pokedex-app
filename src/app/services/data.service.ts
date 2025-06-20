@@ -60,7 +60,7 @@ export class DataService {
               base_experience: results.pokemonData.base_experience,
               height: results.pokemonData.height,
               weight: results.pokemonData.weight,
-              image: results.pokemonData.sprites.front_default,
+              sprites: results.pokemonData.sprites,
               stats: results.pokemonData.stats,
               types: results.pokemonData.types
             };

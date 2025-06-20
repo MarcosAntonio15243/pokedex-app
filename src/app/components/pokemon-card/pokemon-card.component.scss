@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 8rem;
+  gap: 10px;
+  padding: 2rem 2rem;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
+}
+
+:host:hover {
+  box-shadow: var(--red) 0px 4px 4px;
+  transition: 0.5s;
+  scale: 1.1;
+}
+
+:host img {
+  margin-top: -5rem;
+}
+
+:host p {
+  margin: 0;
+  font-weight: bold;
+}
+
+:host .pokemon-id {
+  color: var(--gray);
+}
+
+:host .pokemon-name {
+  text-transform: capitalize;
+  color: var(--blue);
+}

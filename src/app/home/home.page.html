@@ -1,20 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <header>
+    <img
+      src="../../assets/pokeball.svg"
+      alt="A pokeball Image"
+      class="img-pokeball"
+    />
+    <h1>Pokedex Project</h1>
+  </header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <main id="content">
+    <h2>Lista de Pokemons</h2>
+    <div *ngIf="pokemons.length > 0">
+      <mat-paginator [length]="totalPokemons" [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50, 100]" [pageIndex]="currentPage" (page)="pageChanged($event)"></mat-paginator>
+      <mat-spinner *ngIf="loading" [mode]="'indeterminate'" [diameter]="50" color="warn"></mat-spinner>
+      <ul *ngIf="!loading" class="pokemon-list">
+        <li *ngFor="let pokemon of pokemons">
+          <app-pokemon-card [id]="pokemon.id" [name]="pokemon.name" [image]="pokemon.image"></app-pokemon-card>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="pokemons.length === 0">
+      <p>Nenhum Pokémon encontrado.</p>
+    </div>
+  </main>
 </ion-content>

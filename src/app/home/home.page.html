@@ -10,5 +10,18 @@
   </header>
 
   <main id="content">
+    <!-- <p>{{ pokemons.count }}</p> -->
+    <div *ngIf="pokemons.length > 0">
+      <h2>Lista de Pokemons</h2>
+      <ul>
+        <li *ngFor="let pokemon of pokemons">
+          {{ pokemon.name }}
+          <img [src]="pokemon.image" [alt]="pokemon.name" style="width: 100px; height: 100px;">
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="pokemons.length === 0">
+      <p>Nenhum Pokémon encontrado.</p>
+    </div>
   </main>
 </ion-content>

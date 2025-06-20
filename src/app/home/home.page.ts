@@ -4,12 +4,13 @@ import { DataService } from '../services/data.service';
 import { CommonModule } from '@angular/common';
 import { PokemonCardComponent } from '../components/pokemon-card/pokemon-card.component';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonContent, CommonModule, PokemonCardComponent, MatPaginatorModule],
+  imports: [IonContent, CommonModule, PokemonCardComponent, MatPaginatorModule, MatProgressSpinnerModule],
 })
 export class HomePage implements OnInit {
 
@@ -17,6 +18,7 @@ export class HomePage implements OnInit {
   pokemons: any[] = [];
   pageSize: number = 10;
   currentPage: number = 0;
+  loading: boolean = false;
 
   constructor(private dataService: DataService) {}
 
@@ -25,14 +27,18 @@ export class HomePage implements OnInit {
   }
 
   getPokemons() {
+    this.loading = true;
     const offset = this.currentPage * this.pageSize;
     this.dataService.getPokemons(this.pageSize, offset).subscribe({
       next: (data: any) => {
-        this.totalPokemons = data.total,
-        this.pokemons = data.pokemons
+        this.totalPokemons = data.total;
+        this.pokemons = data.pokemons;
       },
       error: (error) => {
         console.error("Erro ao buscar os pokemons: ", error);
+      },
+      complete: () => {
+        this.loading = false;
       }
     });
   }

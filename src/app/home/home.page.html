@@ -10,10 +10,11 @@
   </header>
 
   <main id="content">
+    <h2>Lista de Pokemons</h2>
     <div *ngIf="pokemons.length > 0">
-      <h2>Lista de Pokemons</h2>
       <mat-paginator [length]="totalPokemons" [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50, 100]" [pageIndex]="currentPage" (page)="pageChanged($event)"></mat-paginator>
-      <ul class="pokemon-list">
+      <mat-spinner *ngIf="loading" [mode]="'indeterminate'" [diameter]="50" color="warn"></mat-spinner>
+      <ul *ngIf="!loading" class="pokemon-list">
         <li *ngFor="let pokemon of pokemons">
           <app-pokemon-card [id]="pokemon.id" [name]="pokemon.name" [image]="pokemon.image"></app-pokemon-card>
         </li>

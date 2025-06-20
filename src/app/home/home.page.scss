@@ -38,6 +38,12 @@ h2 {
   column-gap: 2rem;
 }
 
+mat-spinner {
+  --mdc-circular-progress-active-indicator-color: var(--red);
+  margin: 16px auto;
+  display: block;
+}
+
 mat-paginator {
   padding: 0 1rem;
 }

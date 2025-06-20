@@ -1,0 +1,16 @@
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 10px;
+}
+
+.pokemon-card img {
+  margin-top: -70%;
+}
+
+.pokemon-card p {
+  margin: 0;
+}

@@ -15,11 +15,17 @@ header {
   align-items: center;
   gap: 10px;
   padding-block: 0.8rem;
-  box-shadow: 0 0 4px gray;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .img-pokeball {
   max-width: 2rem;
+}
+
+h2 {
+  color: var(--blue);
+  font-weight: bold;
+  padding: 1rem 2rem;
 }
 
 .pokemon-list {

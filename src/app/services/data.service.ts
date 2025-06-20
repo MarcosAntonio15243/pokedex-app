@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, map, Observable, switchMap } from 'rxjs';
+import { catchError, forkJoin, map, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,40 @@ export class DataService {
     );
   }
 
-  
+  getPokemonDetails(idOrName: string | number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/pokemon/${idOrName}/`).pipe(
+      switchMap((pokemonResponse: any) => {
+        const pokemonId = pokemonResponse.id;
+        const genderRequest$ = this.http.get<any>(`${this.apiUrl}/gender/${pokemonId}/`).pipe(
+          map(genderResp => genderResp.name),
+          catchError(error => {
+            console.warn(`Gênero não encontrado: `, error);
+            return of('unknown');
+          })
+        );
+        return forkJoin({ pokemonData: of(pokemonResponse), genderName: genderRequest$ }).pipe(
+          map(results => {
+            const abilities = results.pokemonData.abilities.map((a: any) => a.ability.name);
+            return {
+              id: results.pokemonData.id,
+              name: results.pokemonData.name,
+              abilities: abilities,
+              gender: results.genderName,
+              base_experience: results.pokemonData.base_experience,
+              height: results.pokemonData.height,
+              weight: results.pokemonData.weight,
+              sprites: results.pokemonData.sprites,
+              stats: results.pokemonData.stats,
+              types: results.pokemonData.types
+            };
+          })
+        );
+      }),
+      catchError((error) => {
+        console.error(error);
+        return of(null);
+      })
+    );
+  }
   
 }

@@ -19,7 +19,6 @@ export class DetailsPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
-
   ngOnInit() {
     this.pokemonId = this.route.snapshot.paramMap.get('id');
     if (this.pokemonId) {

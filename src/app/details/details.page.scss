@@ -3,3 +3,70 @@ h2 {
   font-weight: bold;
   padding: 1rem 2rem;
 }
+
+.details {
+  margin-bottom: 2rem;
+}
+
+.details, .details > div, .items-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.details > div {
+  width: fit-content;
+  padding: 1rem 5rem;
+  background-color: var(--white);
+  border-radius: 20px;
+  max-width: 600px;
+  margin: 0 1rem;
+  gap: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.pokemon-id, .pokemon-name {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.details p {
+  margin: 0;
+}
+
+.details p span {
+  color: var(--red);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.items-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.items-list ul li {
+  border: 1px solid var(--blue);
+  padding: 0.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.items-list ul li:hover {
+  color: var(--white);
+  background-color: var(--red);
+  border-color: var(--red);
+  transition: 0.2s;
+}
+
+.pokemon-id, .pokemon-name, .items-list p {
+  color: var(--blue);
+  font-weight: bold;
+  letter-spacing: 1px;
+}

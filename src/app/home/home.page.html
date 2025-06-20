@@ -12,7 +12,7 @@
   <main id="content">
     <div *ngIf="pokemons.length > 0">
       <h2>Lista de Pokemons</h2>
-       <mat-paginator [length]="totalPokemons" [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50, 100]" [pageIndex]="currentPage" (page)="pageChanged($event)"></mat-paginator>
+      <mat-paginator [length]="totalPokemons" [pageSize]="pageSize" [pageSizeOptions]="[10, 20, 50, 100]" [pageIndex]="currentPage" (page)="pageChanged($event)"></mat-paginator>
       <ul class="pokemon-list">
         <li *ngFor="let pokemon of pokemons">
           <app-pokemon-card [id]="pokemon.id" [name]="pokemon.name" [image]="pokemon.image"></app-pokemon-card>

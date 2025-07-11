@@ -23,12 +23,12 @@ A mobile-friendly web application built with **Ionic + Angular** that allows use
 Some screenshots from the app:
 
 <p align="center">
-  <img src="./assets/screenshots/pokemon-list.png" width="300" />
+  <img src="./assets/screenshots/pokemon-list.png" width="80%" />
   <br>Pokémon list page with pagination
 </p>
 
 <p align="center">
-  <img src="./assets/screenshots/pokemon-details.png" width="300" />
+  <img src="./assets/screenshots/pokemon-details.png" width="80%" />
   <br>Pokémon details
 </p>
 

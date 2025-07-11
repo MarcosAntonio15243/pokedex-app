@@ -4,13 +4,14 @@ import { DataService } from '../services/data.service';
 import { CommonModule } from '@angular/common';
 import { PokemonCardComponent } from '../components/pokemon-card/pokemon-card.component';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonContent, CommonModule, PokemonCardComponent, MatPaginatorModule, MatProgressSpinnerModule],
+  imports: [IonContent, CommonModule, PokemonCardComponent, MatPaginatorModule, MatProgressSpinnerModule, RouterModule],
 })
 export class HomePage implements OnInit {
 

@@ -1,7 +1,46 @@
+
 h2 {
   color: var(--blue);
   font-weight: bold;
+}
+
+.top-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 1rem 2rem;
+}
+
+.go-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: fit-content;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.go-back-btn::before {
+  content: "< ";
+}
+
+.go-back-btn:hover {
+  background-color: #081835d4;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner mat-spinner {
+  --mdc-circular-progress-active-indicator-color: var(--red);
+  margin: 16px auto;
+  display: block;
 }
 
 .details {

@@ -16,7 +16,7 @@
       <mat-spinner *ngIf="loading" [mode]="'indeterminate'" [diameter]="50" color="warn"></mat-spinner>
       <ul *ngIf="!loading" class="pokemon-list">
         <li *ngFor="let pokemon of pokemons">
-          <a [routerLink]="['/details', pokemon.id]">
+          <a [routerLink]="['/details', pokemon.id]" class="details-link">
             <app-pokemon-card [id]="pokemon.id" [name]="pokemon.name" [image]="pokemon.image"></app-pokemon-card>
           </a>
         </li>

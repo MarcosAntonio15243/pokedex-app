@@ -8,7 +8,14 @@
 
   <main class="content">
 
-    <h2>Detalhes do Pokemon</h2>
+    <span class="top-info">
+      <h2>Detalhes do Pokemon</h2>
+      <button (click)="voltar()" class="go-back-btn">Voltar</button>
+    </span>
+    
+    <span class="spinner">
+      <mat-spinner *ngIf="loading" [mode]="'indeterminate'" [diameter]="50" color="warn"></mat-spinner>
+    </span>
     
     <section class="details" *ngIf="pokemonDetails">
       <div>

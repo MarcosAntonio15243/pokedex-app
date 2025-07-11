@@ -11,10 +11,16 @@ import { RouterModule } from '@angular/router';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonContent, CommonModule, PokemonCardComponent, MatPaginatorModule, MatProgressSpinnerModule, RouterModule],
+  imports: [
+    IonContent,
+    CommonModule,
+    PokemonCardComponent,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    RouterModule,
+  ],
 })
 export class HomePage implements OnInit {
-
   totalPokemons: number = 0;
   pokemons: any[] = [];
   pageSize: number = 10;
@@ -36,11 +42,11 @@ export class HomePage implements OnInit {
         this.pokemons = data.pokemons;
       },
       error: (error) => {
-        console.error("Erro ao buscar os pokemons: ", error);
+        console.error('Erro ao buscar os pokemons: ', error);
       },
       complete: () => {
         this.loading = false;
-      }
+      },
     });
   }
 
@@ -49,5 +55,4 @@ export class HomePage implements OnInit {
     this.currentPage = event.pageIndex;
     this.getPokemons();
   }
-
 }

@@ -78,7 +78,7 @@ This project consumes data from:
 
 ## 🙋‍♂️ Author
 
-Made with  [Marcos Antonio](https://github.com/MarcosAntonio15243).
+Made by [Marcos Antonio](https://github.com/MarcosAntonio15243).
 
 - 💻 Full Stack developer dedicated to building complete solutions by combining modern, functional user interfaces with robust back-end architectures.
 - 📚 This project represents my first experience using **Angular** and **Ionic**, created purely for exploration and skill development.

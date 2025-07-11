@@ -62,7 +62,7 @@ export class DetailsPage implements OnInit {
     });
   }
 
-  voltar(): void {
+  back(): void {
     this.location.back();
   }
 }

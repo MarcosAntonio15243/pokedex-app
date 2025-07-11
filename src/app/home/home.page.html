@@ -5,11 +5,11 @@
       alt="A pokeball Image"
       class="img-pokeball"
     />
-    <h1>Pokedex Project</h1>
+    <h1>Pokedex App</h1>
   </header>
 
   <main id="content">
-    <h2>Lista de Pokemons</h2>
+    <h2>Pokémon List</h2>
     <div *ngIf="pokemons.length > 0">
       <!-- Paginator -->
       <mat-paginator
@@ -42,7 +42,7 @@
       </ul>
     </div>
     <div *ngIf="pokemons.length === 0">
-      <p>Nenhum Pokémon encontrado.</p>
+      <p>No Pokémon found.</p>
     </div>
   </main>
 </ion-content>
